@@ -1,0 +1,30 @@
+<center><h2><font color="#516C8D">ぼやき</font></h2></center>
+
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-menus">
+        <dl id="accordion">
+          <dt class="posts-show-change">↓変更</dt>
+            <dd><%= link_to "編集", edit_post_path(@post.id) %>
+            <br>
+            <%= link_to "削除", post_path(@post.id),method: :delete %>
+            </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class:"square_btn" %></center>
+
+<!--
+  <%= link_to("削除", "/posts/#{@post.id}/destroy", method: :delete) %> -->

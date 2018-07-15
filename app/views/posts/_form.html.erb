@@ -1,0 +1,22 @@
+<%= form_with(model: @post, local: true) do |post| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <!-- <h2><%= post.label :content %></h2> -->
+    <%= post.text_area :content, placeholder:"最大140文字で「ぼやき」倒そう！" %>
+    <input type="submit" value="ぼやく">
+  </div>
+
+<% end %>
+<br>
+<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class:"square_btn" %></center>

@@ -1,41 +1,16 @@
 <center><h2><font color="#516C8D">BOYAKI 一覧</font></h2></center><br>
 
-<div class="main posts-index">
-  <div class="container">
-    <% @posts.each do |post| %>
-      <div class="posts-index-item">
-        <%= link_to(post.content, "/posts/#{post.id}") %>
-      </div>
-    <% end %>
-  </div>
+<div class="container row">
+  <% @posts.each do |post| %>
+    <div class="posts-index-item col-md-6">
+      <%= link_to(post.content, "/posts/#{post.id}")%>
+    </div>
+  <% end %>
 </div>
 
 
-<br>
-<center><%= link_to '盛大にBOYAKU！', new_post_path, class:"square_btn" %></center>
+  <br>
+  <center><%= link_to '盛大にBOYAKU！', new_post_path, class: "btn btn-default" %></center>
+</div>
 
-
-
-
-<!-- <center>
-  <div class="index_posts_box">
-    <table>
-      <% @posts.each do |post| %>
-        <tr class="index_tr">
-          <td class="index_post"><%= post.content %></td>
-          <td>
-            <dl id="accordion">
-              <dt><%= link_to '詳細', post_path(post.id) %></dt>
-              <dt>変更↓</dt>
-                <dd>
-                    <%= link_to '編集', edit_post_path(post.id), data: { confirm: '本当に編集しますか？' }%>
-                  <br>
-                    <%= link_to '削除', post_path(post.id), method: :delete,data: { confirm: '削除しますか？' } %>
-                </dd>
-            </dl>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
-</center> -->
+<!-- class:"square_btn" -->

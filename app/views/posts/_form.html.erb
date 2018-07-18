@@ -1,4 +1,4 @@
-<%= form_with(model: @post, local: true) do |post| %>
+<%= form_with(model: @post, local: true) do |post| %><br>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="container">
-    <!-- <h2><%= post.label :content %></h2> -->
-    <%= post.text_area :content, placeholder:"最大140文字で「ぼやき」倒そう！" %>
-    <input type="submit" value="ぼやく">
+  <div class="form_contents">
+      <%= post.text_area :content, :size => "45x5", placeholder:"最大140文字で「ぼやき」倒そう！" %>
+    <br><br><input type="submit" value="ぼやく">
   </div>
 
 <% end %>
 <br>
-<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class:"square_btn" %></center>
+<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class: "btn btn-default" %></center>
+
+<!-- class:"square_btn" -->

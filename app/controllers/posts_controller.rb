@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :user_login, only: [:new, :edit, :show, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   protect_from_forgery :except => [:create]
 
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path notice:"つぶやきシター！"
+      redirect_to posts_path(@post.id), notice:"ブツブツブツ・・・"
     else
       render 'new'
     end
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path, notice:"編集しました!"
+      redirect_to post_path(@post.id), notice:"ぼやき直しました"
     else
       render 'edit'
     end
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice:"つぶやきを削除しました"
+    redirect_to posts_path(@post.id), notice:"ぼやきを抹消しました"
   end
 
 private
@@ -46,6 +47,10 @@ private
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def user_login
+    redirect_to new_session_path unless logged_in?
   end
 
 end

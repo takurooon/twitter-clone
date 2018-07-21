@@ -38,3 +38,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+
+
+gem 'bcrypt', '3.1.11'

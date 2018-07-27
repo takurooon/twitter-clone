@@ -13,10 +13,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # def index
+  #   @user = User.find(params[:id])
+  #   @favorites_posts = @user.favorite_posts
+  # end
+
   def show
     @user = User.find(params[:id])
+    @favorites_posts = @user.favorite_posts
   end
-
 
 
   private

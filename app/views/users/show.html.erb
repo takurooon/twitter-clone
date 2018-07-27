@@ -1,3 +1,13 @@
-<h1><%= @user.name %>のページ</h1>
+<center><h2><font color="#516C8D">お気に入りの「ぼやき」</font></h2></center>
 
-<p>メールアドレス: <%= @user.email %></p>
+<div class="main-posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <% if @favorites_posts.present? %>
+        <% @favorites_posts.each do |favorite| %>
+            <p><%= favorite.content %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

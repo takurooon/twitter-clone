@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+  root to: 'home#index'
   resources :posts
   resources :home
-  root to: 'home#index'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :favorites, only: [:create, :destroy, :show]
 
 end

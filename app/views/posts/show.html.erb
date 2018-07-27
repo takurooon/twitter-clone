@@ -11,20 +11,29 @@
       </p>
       <div class="post-menus">
         <dl id="accordion">
+          <% if @post.user == current_user %>
           <dt class="posts-show-change">↓変更</dt>
             <dd><%= link_to "編集", edit_post_path(@post.id) %>
             <br>
             <%= link_to "削除", post_path(@post.id),method: :delete %>
             </dd>
+          <% end %>
         </dl>
       </div>
     </div>
   </div>
 </div>
 
+<% unless @post.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入りを解除', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入り登録', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 
 <br>
-<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class: "btn btn-default" %></center>
+<center><%= link_to 'BOYAKI一覧に戻る', posts_path, class:"square_btn" %></center>
 
-
-<!-- class:"square_btn" -->
+<!-- class: "btn btn-default" -->

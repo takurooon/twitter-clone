@@ -28,8 +28,11 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
   # debug
     gem 'pry-rails'
+    gem 'better_errors'
+    gem 'binding_of_caller'
 end
 
 
@@ -41,3 +44,4 @@ end
 
 
 gem 'bcrypt', '3.1.11'
+gem 'dotenv-rails'

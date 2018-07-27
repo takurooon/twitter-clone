@@ -1,0 +1,9 @@
+<% if @favorite_posts.present? %>
+  <% @favorite_posts.each do |t| %>
+    <div class="box30">
+      <div class="box-title">writer：<%= t.user.name %></div>
+      <div class="box-title">Title：<%= t.title %></div>
+      <p><%= t.content %></p>
+    </div>
+  <% end %>
+<% end %>

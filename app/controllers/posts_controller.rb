@@ -15,11 +15,24 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path(@post.id), notice:"ブツブツブツ・・・"
-    else
-      render 'new'
+    # if @post.save
+    #   redirect_to posts_path(@post.id), notice:"ブツブツブツ・・・"
+    # else
+    #   render 'new'
+    # end
+
+# Action Mailerの記述
+    respond_to do |format|
+      if @post.save
+        PostMailer.post_mail(@post).deliver
+        format.html { redirect_to posts_path(@post.id), notice: '投稿できました！' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
+
   end
 
   def show

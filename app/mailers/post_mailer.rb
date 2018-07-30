@@ -2,7 +2,8 @@ class PostMailer < ApplicationMailer
 
   def post_mail(post)
     @post = post
-    mail to: "mailaddress0726@icloud.com", subject: "お問い合わせの確認メール"
+    @user_email = @post.user.email
+    mail to: @user_email, subject: "ぼやき確認メール"
   end
 
 end

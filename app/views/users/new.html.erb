@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1>新規登録</h1>
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -26,6 +26,10 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit "Create my account" %>
+  <%= f.label :icon %>
+  <%= f.file_field :icon, id: :user_icon %>
+  <br>
+
+  <%= f.submit "アカウント登録" %>
 
 <% end %>

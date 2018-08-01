@@ -21,7 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Model
-gem 'rails-i18n'
+# gem 'rails-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -46,3 +46,10 @@ end
 
 gem 'bcrypt', '3.1.11'
 gem 'dotenv-rails'
+
+  # seedデータ
+gem 'faker'
+
+  # 画像
+gem 'carrierwave'
+gem 'mini_magick'

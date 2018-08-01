@@ -13,10 +13,17 @@
 
   <div class="form_contents">
       <%= post.text_area :content, :size => "45x5", placeholder:"最大140文字で「ぼやき」倒そう！" %>
-    <br><br><input type="submit" value="ぼやく">
+    <br><br>
+    <div class="field">
+      <span style="color:#ff0000;"><%= post.label :"画像も投稿できます↓" %></span>
+      <center><%= post.file_field :image, id: :post_image %></center>
+    </div>
+    <br>
+      <input type="submit" value="ぼやく">
   </div>
-
 <% end %>
+<br>
+<br>
 <br>
 <center><%= link_to 'BOYAKI一覧に戻る', posts_path, class:"square_btn" %></center>
 

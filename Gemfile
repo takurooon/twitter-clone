@@ -53,3 +53,5 @@ gem 'faker'
   # 画像
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'rails_12factor'
